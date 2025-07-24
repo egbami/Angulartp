@@ -1,39 +1,38 @@
 <!-- Hero Slider Section -->
 <section class="hero-slider">
-  <swiper-container 
-    class="hero-swiper"
-    [loop]="true"
-    [effect]="'fade'"
-    [speed]="1000"
-    [autoplay]="{delay: 5000, disableOnInteraction: false}"
-    [pagination]="{
-      clickable: true,
-      el: '.swiper-pagination'
-    }"
-    [navigation]="{
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    }"
-  >
-    <swiper-slide *ngFor="let slide of slides">
-      <div class="hero-slide" [ngStyle]="{'background-image': 'url(' + slide.image + ')'}">
-        <div class="container">
-          <div class="slide-content" [class]="getTextPositionClass(slide.textPosition)">
-            <h2 class="slide-title">{{ slide.title }}</h2>
-            <p class="slide-subtitle">{{ slide.subtitle }}</p>
-            <a [routerLink]="slide.buttonLink" class="btn btn-primary">
-              {{ slide.buttonText }}
-            </a>
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Texte principal -->
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <h1>Bienvenue sur Cosmetics Store</h1>
+          <p class="lead">Découvrez notre sélection exclusive de produits de beauté et de soins</p>
+          <div class="hero-buttons">
+            <a href="/products" class="btn btn-primary me-2">Nos produits</a>
+            <a href="/promotions" class="btn btn-outline-primary">Promotions</a>
           </div>
         </div>
       </div>
-    </swiper-slide>
-    
-    <!-- Navigation buttons -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-  </swiper-container>
+      
+      <!-- Slider -->
+      <div class="col-lg-6">
+        <swiper-container 
+          #swiper 
+          [config]="sliderConfig"
+          class="hero-swiper"
+          init="false"
+        >
+          <ng-template swiperSlide *ngFor="let slide of slides">
+            <div class="hero-slide">
+              <img [src]="slide.image" [alt]="slide.title" class="img-fluid rounded">
+            </div>
+          </ng-template>
+          
+          <div class="swiper-pagination" slot="pagination"></div>
+        </swiper-container>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Highlights Section -->
