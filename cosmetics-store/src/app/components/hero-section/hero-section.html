@@ -1,28 +1,76 @@
+<!-- Hero Slider Section -->
 <section class="hero-slider">
-  <!-- Slider principal -->
-  <div class="slider">
-    <div class="slide" *ngFor="let slide of slides">
-      <img [src]="slide.images" alt="Slide image" />
-      <div class="slide-content">
-        <h2>{{ slide.title }}</h2>
-        <p>{{ slide.subtitle }}</p>
-        <button>{{ slide.buttonText }}</button>
+  <swiper-container 
+    class="hero-swiper"
+    [loop]="true"
+    [effect]="'fade'"
+    [speed]="1000"
+    [autoplay]="{delay: 5000, disableOnInteraction: false}"
+    [pagination]="{
+      clickable: true,
+      el: '.swiper-pagination'
+    }"
+    [navigation]="{
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }"
+  >
+    <swiper-slide *ngFor="let slide of slides">
+      <div class="hero-slide" [ngStyle]="{'background-image': 'url(' + slide.image + ')'}">
+        <div class="container">
+          <div class="slide-content" [class]="getTextPositionClass(slide.textPosition)">
+            <h2 class="slide-title">{{ slide.title }}</h2>
+            <p class="slide-subtitle">{{ slide.subtitle }}</p>
+            <a [routerLink]="slide.buttonLink" class="btn btn-primary">
+              {{ slide.buttonText }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    
+    <!-- Navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </swiper-container>
+</section>
+
+<!-- Highlights Section -->
+<section class="highlights-section py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3" *ngFor="let item of highlights">
+        <a [routerLink]="item.link" class="highlight-item d-flex align-items-center">
+          <div class="highlight-icon me-3">
+            <img [src]="item.image" [alt]="item.title" class="img-fluid">
+          </div>
+          <div class="highlight-text">
+            <h3 class="h6 mb-0">{{ item.title }}</h3>
+            <p class="small text-muted mb-0">{{ item.subtitle }}</p>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="highlighted-section">
-  <!-- Mise en avant -->
-  <div class="highlight" *ngFor="let item of highlights">
-    <img [src]="item.image" alt="Highlight" />
-    <h3>{{ item.title }}</h3>
-  </div>
-</section>
-
-<section class="banners">
-  <!-- Bannières promos -->
-  <div class="banner" *ngFor="let banner of banners">
-    <img [src]="banner.image" alt="Banner" />
+<!-- Banners Section -->
+<section class="banners-section py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let banner of banners">
+        <div class="banner-card position-relative overflow-hidden rounded">
+          <img [src]="banner.image" [alt]="banner.title" class="img-fluid w-100">
+          <div class="banner-content position-absolute p-4">
+            <h3 class="h4 text-white">{{ banner.title }}</h3>
+            <p class="text-white mb-3">{{ banner.subtitle }}</p>
+            <a [routerLink]="banner.link" class="btn btn-outline-light">
+              {{ banner.buttonText }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
