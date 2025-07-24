@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-contact',
-  imports: [],
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.css'
+  styleUrls: ['./contact.css']
 })
-export class Contact {
-
-}
+export class ContactComponent {}

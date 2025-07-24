@@ -1,14 +1,21 @@
-// app.component.ts
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+// src/app/app.component.ts
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import { filter, map, switchMap } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+import { Subscription, filter, map, switchMap } from 'rxjs';
+import { CommonModule } from '@angular/common';
+
+// Import du HeaderComponent
+import { HeaderComponent } from './components/header/header';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  standalone: true,
+  imports: [CommonModule, RouterModule, HeaderComponent],
+  template: `
+    <app-header></app-header>
+    <router-outlet (activate)="onRouterOutletActivated($event)"></router-outlet>
+  `,
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'cosmetics-store';
@@ -58,7 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
         // Mise à jour de la description
         if (data['description']) {
           this.metaService.updateTag({
-            name: 'description', 
+            name: 'description',
             content: data['description']
           });
         }
@@ -74,20 +81,12 @@ export class AppComponent implements OnInit, OnDestroy {
       { name: 'keywords', content: 'cosmétiques, beauté, soins, maquillage, skincare, produits de beauté' },
       { name: 'author', content: 'Cosmetics Store' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { charset: 'utf-8' }
-    ]);
-
-    // Open Graph tags pour les réseaux sociaux
-    this.metaService.addTags([
+      { charset: 'utf-8' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Cosmetics Store' },
       { property: 'og:image', content: '/assets/images/og-image.jpg' },
       { property: 'og:image:width', content: '1200' },
-      { property: 'og:image:height', content: '630' }
-    ]);
-
-    // Twitter Card tags
-    this.metaService.addTags([
+      { property: 'og:image:height', content: '630' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@cosmeticsstore' },
       { name: 'twitter:image', content: '/assets/images/og-image.jpg' }
@@ -96,6 +95,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // Méthode pour afficher le loading lors de navigation
   onRouterOutletActivated(event: any) {
-    // Peut être utilisé pour des animations de transition
+    // futur loader ou animation
   }
 }
