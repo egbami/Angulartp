@@ -1,0 +1,15 @@
+/* src/app/pages/home/home.css */
+.promo-section {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.promo-section h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.promo-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}

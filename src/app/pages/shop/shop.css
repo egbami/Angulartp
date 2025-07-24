@@ -1,0 +1,9 @@
+.shop-header {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.shop-header h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+}
