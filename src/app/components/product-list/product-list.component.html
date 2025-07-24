@@ -1,0 +1,7 @@
+<div class="product-list">
+    <app-product-card *ngFor="let product of products" [product]="product" (click)="selectProduct(product)">
+    </app-product-card>
+</div>
+
+<!-- Détail du produit sélectionné -->
+<app-product-details *ngIf="selectedProduct" [product]="selectedProduct"></app-product-details>
