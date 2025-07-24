@@ -1,0 +1,33 @@
+.cosmetics-logo {
+  font-family: 'Allison', cursive; /* On tente de retouver la police de Cosmetics*/
+  font-size: 3rem;
+  font-weight: normal;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Icônes sociales arrondies */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #000000;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #f08a5d;
+  color: white;
+}
+
+footer p,
+footer a {
+  font-size: 0.95rem;
+ 
+}
