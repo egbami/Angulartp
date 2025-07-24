@@ -1,11 +1,29 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 @Component({
   selector: 'app-hero-section',
-  imports: [],
+  standalone: true,
   templateUrl: './hero-section.html',
-  styleUrl: './hero-section.css'
+  styleUrls: ['./hero-section.css']
 })
-export class HeroSection {
+export class HeroSectionComponent implements AfterViewInit {
 
+  ngAfterViewInit() {
+    new Swiper('.mySwiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      }
+    });
+  }
 }
+
+

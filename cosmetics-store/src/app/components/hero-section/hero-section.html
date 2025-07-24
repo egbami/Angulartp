@@ -1,1 +1,28 @@
-<p>hero-section works!</p>
+<section class="hero-slider">
+  <!-- Slider principal -->
+  <div class="slider">
+    <div class="slide" *ngFor="let slide of slides">
+      <img [src]="slide.images" alt="Slide image" />
+      <div class="slide-content">
+        <h2>{{ slide.title }}</h2>
+        <p>{{ slide.subtitle }}</p>
+        <button>{{ slide.buttonText }}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="highlighted-section">
+  <!-- Mise en avant -->
+  <div class="highlight" *ngFor="let item of highlights">
+    <img [src]="item.image" alt="Highlight" />
+    <h3>{{ item.title }}</h3>
+  </div>
+</section>
+
+<section class="banners">
+  <!-- Bannières promos -->
+  <div class="banner" *ngFor="let banner of banners">
+    <img [src]="banner.image" alt="Banner" />
+  </div>
+</section>
