@@ -1,0 +1,100 @@
+/* src/app/header/header.css */
+.main-header {
+  background-color: #fff; /* Fond blanc */
+  border-bottom: 1px solid #eee; /* Bordure inférieure légère */
+  padding: 20px 0; /* Plus de padding vertical pour le haut et le bas */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Légère ombre */
+  position: sticky; /* Reste en haut au défilement */
+  top: 0;
+  z-index: 1000; /* Assure qu'il est au-dessus des autres contenus */
+}
+
+.header-content {
+  display: flex; /* Utilise Flexbox pour aligner les éléments */
+  justify-content: space-between; /* Espacement égal entre logo, nav et icônes */
+  align-items: center; /* Alignement vertical au centre */
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur petits écrans */
+}
+
+.site-branding .site-logo {
+  height: 40px; /* Hauteur du logo */
+  display: block; /* S'assure que le SVG est traité comme un bloc */
+  height: 40px;
+}
+
+.main-navigation ul {
+  display: flex; /* Alignement horizontal des éléments du menu */
+  gap: 35px; /* Espacement entre chaque lien de navigation */
+}
+
+.main-navigation a {
+  font-size: 1rem; /* Taille de police par défaut */
+  color: #333; /* Couleur du texte des liens */
+  font-weight: 500; /* Poids de la police */
+  padding: 5px 0; /* Padding pour la zone de clic/survol */
+  transition: color 0.3s ease; /* Transition douce pour le survol */
+}
+
+.main-navigation a:hover {
+  color: #e67e22; /* Couleur d'accentuation au survol */
+}
+
+.header-icons {
+  display: flex; /* Alignement horizontal des icônes */
+  gap: 25px; /* Espacement entre les icônes */
+}
+
+.header-icons a {
+  font-size: 1.3rem; /* Taille des icônes */
+  color: #555; /* Couleur des icônes */
+  position: relative; /* Pour positionner le badge du panier */
+  transition: color 0.3s ease;
+}
+
+.header-icons a:hover {
+  color: #e67e22; /* Couleur d'accentuation au survol des icônes */
+}
+
+.header-icons .cart-icon span {
+  position: absolute;
+  top: -8px; /* Positionnement au-dessus de l'icône */
+  right: -10px; /* Positionnement à droite de l'icône */
+  background-color: #e67e22; /* Couleur du cercle du panier */
+  color: #fff; /* Texte blanc */
+  font-size: 0.7rem; /* Taille de la police du chiffre */
+  border-radius: 50%; /* Forme circulaire */
+  padding: 3px 6px; /* Espacement intérieur du cercle */
+  line-height: 1; /* Assure que le texte est bien centré verticalement */
+  min-width: 18px; /* Taille minimale pour un chiffre */
+  text-align: center; /* Centre le chiffre */
+  display: flex; /* Utilise flex pour centrer le contenu si besoin */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media Queries pour la réactivité - très simplifié pour l'instant */
+@media (max-width: 900px) {
+  .main-navigation ul {
+    gap: 20px;
+  }
+  .header-icons {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column; /* Empile les éléments sur les petits écrans */
+    text-align: center;
+  }
+  .site-branding {
+    margin-bottom: 15px;
+  }
+  .main-navigation {
+    margin-bottom: 15px;
+  }
+  .main-navigation ul {
+    flex-direction: column; /* Empile les liens de nav */
+    gap: 10px;
+  }
+}

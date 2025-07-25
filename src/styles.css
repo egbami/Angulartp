@@ -1,0 +1,33 @@
+/* src/styles.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style global pour le corps du document */
+body {
+  font-family: 'Poppins', sans-serif; /* Utilise la police Poppins */
+  line-height: 1.6;
+  color: #333; /* Couleur de texte par défaut */
+  background-color: #f8f8f8; /* Un arrière-plan légèrement gris, commun pour les sites clairs */
+}
+
+/* Style pour les listes non ordonnées */
+ul {
+  list-style: none; /* Supprime les puces des listes */
+}
+
+/* Style pour les liens */
+a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: inherit; /* Les liens héritent de la couleur du texte parent */
+}
+
+/* Conteneur générique pour centrer le contenu */
+.container {
+  max-width: 1200px; /* Largeur maximale commune pour le contenu principal */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+  padding: 0 20px; /* Espacement intérieur sur les côtés */
+}

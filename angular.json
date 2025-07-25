@@ -3,9 +3,34 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "project_angul": {
+    "cosmetics-store": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:component": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,7 +50,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ]
           },
           "configurations": {
@@ -56,10 +81,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "project_angul:build:production"
+              "buildTarget": "cosmetics-store:build:production"
             },
             "development": {
-              "buildTarget": "project_angul:build:development"
+              "buildTarget": "cosmetics-store:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,10 +106,8 @@
                 "input": "public"
               }
             ],
-            
             "styles": [
-                "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-                "src/styles.scss"
+              "src/styles.css"
             ]
           }
         }

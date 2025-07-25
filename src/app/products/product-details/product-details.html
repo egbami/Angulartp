@@ -1,0 +1,22 @@
+<section class="product-details-section" *ngIf="product">
+  <div class="container product-detail-container">
+    <button (click)="goBack()" class="back-button"><i class="fas fa-arrow-left"></i> Retour à la boutique</button>
+
+    <div class="product-detail-card">
+      <div class="product-detail-image-wrapper">
+        <img [src]="product.image" [alt]="product.name" class="product-detail-image">
+      </div>
+      <div class="product-detail-info">
+        <h1 class="product-detail-name">{{ product.name }}</h1>
+        <p class="product-detail-category">Catégorie : {{ product.category }}</p>
+        <p class="product-detail-price">{{ product.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</p>
+        <p class="product-detail-description">{{ product.description }}</p>
+        <button class="add-to-cart-detail-btn">Ajouter au panier</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="!product" class="container no-product-found">
+  <p>Produit non trouvé.</p>
+</div>
